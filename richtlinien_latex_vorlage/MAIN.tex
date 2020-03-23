@@ -1,0 +1,165 @@
+%***********************************************************************
+%* File            :    MAIN.tex
+%*
+%* HAUPTDOKUMENT
+%*
+%* Dieses Dokument bindet alle untergeordneten Dokumente
+%* ein. Es wird beim Aufruf von pdflatex als Quelle angegeben.
+%*
+%* Autoren         :    Daniel Hering, Tobias Wartzek 
+%*                      
+%* Datum           :    05.12.2009
+%***********************************************************************
+
+
+
+\documentclass[12pt,a4paper,twoside,openright,index=totoc,listof=totoc,DIV15,BCOR=8.25mm,headinclude,footinclude=false,headsepline,notitlepage,numbers=noenddot,bibliography=totoc,headings=normal,parskip=full]{scrbook}
+
+%************************************************************************
+% Das Package muss leider hier eingebunden werden da sonst in den 
+% Befehlen für hypersetup keinerlei Umlaute zur Verfügung stehen
+%************************************************************************
+
+\usepackage[latin1]{inputenc}            % erlaubt direkte Eingabe Deutscher
+                                         % Sonderzeichen in .tex Dateien
+                                         %(latin1=iso8859-1 fuer Unix Editoren 
+                                         % oder Windows Editoren die auch latin1
+                                         % beherrschen)
+                                         
+%************************************************************************
+% Dateiinfos eintragen (u.a. von hypersetup und für die Titelseite verwendet)
+%************************************************************************
+\usepackage{pdfpages}
+% Titel der Arbeit 
+\newcommand*{\doclongtitle}{Richtlinien für Abschlussarbeiten}
+
+% Art der Arbeit (Diplomarbeit, Studienarbeit, Bachelorarbeit, etc.)
+\newcommand*{\docsubject}{Masterarbeit}
+
+% Name des Autors
+\newcommand*{\docauthor}{Marian Walter}
+
+% E-Mail Adresse des Autors
+\newcommand*{\docauthoremail}{walter@hia.rwth-aachen.de}
+
+% Schlüsselworte der Arbeit 
+\newcommand*{\dockeywords}{MedIT Latex Studienarbeit Diplomarbeit Vorlage}
+
+% Name des Betreuers
+\newcommand*{\docsupervisor}{Dipl.-Ing. Mustermann}
+
+\newcommand*{\docauthorfax}{+49 241 80-6-23211}
+\newcommand*{\docauthorphone}{+49 241 80-23211}
+
+% Bild auf der Titelseite
+\newcommand*{\doctitlepic}{images/beispiel1}
+
+% folgende Befehle nicht ändern!!
+\newcommand*{\dochomepage}{www.medit.hia.rwth-aachen.de}
+\newcommand*{\docshorttitle}{\doclongtitle}
+
+%**********************************************
+%* Pakete (HEADER)                           *
+%**********************************************
+
+\include{HEADER}
+
+
+%*************************************************************
+%*************************************************************
+%*																													**
+%* 					Beginn des Dokuments 						  							**
+%*																													**
+%*************************************************************
+%*************************************************************
+
+\begin{document}
+\begin{sloppypar}                       % schöner Blocksatz trotz langer Worte
+
+
+
+%*************************************************************
+%																														 *
+%										 ENDE ALLER DEFINITIONEN 								 *
+%																														 *
+%*************************************************************
+
+
+\frontmatter    												%römische Nummerierung aktivieren
+\include{titelseite}
+%\include{titelseite_alt}
+\cleardoubleemptypage
+
+
+%**************
+%* Danksagung *
+%**************
+
+\include{danksagung}
+\cleardoubleemptypage
+
+%************************************************
+%* Erklärung (hier muss nichts geändert werden) *
+%************************************************
+
+\include{erklaerung}
+\cleardoubleemptypage
+
+%************
+%* Abstract *
+%************
+
+\include{abstract}
+\cleardoubleemptypage
+
+%**********************
+%* Inhaltsverzeichnis *
+%**********************
+
+
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis} % Eintrag im Inhaltsverzeichnis erstellen
+\tableofcontents                        % Inhaltsverzeichnis anlegen
+\cleardoubleemptypage
+
+
+
+%*********************
+%* Symbolverzeichnis *
+%********************
+
+\include{symbolverzeichnis}
+\cleardoubleemptypage
+
+\mainmatter							% Arabische Nummerierung, Beginn des Hauptteils
+
+%**************
+%* Einleitung *
+%**************
+
+\include{einleitung}
+
+%*************
+%* Hauptteil *
+%*************
+ 
+\include{richtlinien}
+
+%**********
+%* Anhang *
+%**********
+
+\cleardoublepage
+\appendix
+\include{anhang}
+
+
+%**********************************************************
+% Literaturverzeichnis (hier muss nichts geändert werden) *
+%**********************************************************
+
+\bibliographystyle{alphadin}    %\bibliographystyle{} plain dinat
+\bibliography{literatur}%
+
+
+\end{sloppypar}
+\end{document}
